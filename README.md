@@ -19,6 +19,8 @@ The governance baseline you lay down before onboarding workload projects.
 
 ## 🏗️ Architecture
 
+> 🎨 **Interactive diagram (industry-standard icons):** [open in Lucid — page 28](https://lucid.app/lucidchart/3da75ce3-ea66-4296-81b3-00d20a60435b/edit)
+
 ```mermaid
 flowchart TB
     Org[Organization]
