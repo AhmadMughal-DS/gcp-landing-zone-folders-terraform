@@ -1,14 +1,9 @@
 output "workloads_folder_id" {
-  description = "Workloads folder resource name"
-  value       = google_folder.workloads.name
+  value = module.landingzone.workloads_folder_id
 }
-
 output "shared_folder_id" {
-  description = "Shared folder resource name"
-  value       = google_folder.shared.name
+  value = module.landingzone.shared_folder_id
 }
-
 output "shared_vpc_host_project" {
-  description = "Shared VPC host project"
-  value       = google_compute_shared_vpc_host_project.host.project
+  value = module.landingzone.shared_vpc_host_project
 }

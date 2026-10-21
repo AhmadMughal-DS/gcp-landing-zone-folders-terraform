@@ -1,29 +1,39 @@
 variable "org_id" {
-  description = "GCP organization ID"
-  type        = string
-  default     = "123456789012"
+  type    = string
+  default = "123456789012"
 }
 
 variable "host_project_id" {
-  description = "Shared VPC host project ID"
-  type        = string
-  default     = "your-host-project-id"
+  type    = string
+  default = "your-host-project-id"
 }
 
 variable "service_project_id" {
-  description = "Shared VPC service project ID"
-  type        = string
-  default     = "your-service-project-id"
+  type    = string
+  default = "your-service-project-id"
 }
 
 variable "region" {
-  description = "GCP region"
-  type        = string
-  default     = "us-central1"
+  type    = string
+  default = "us-central1"
 }
 
 variable "project_name" {
-  description = "Name prefix applied to folders"
-  type        = string
-  default     = "ahmad-lz"
+  type    = string
+  default = "ahmad-lz"
+
+  validation {
+    condition     = can(regex("^[a-z][a-z0-9-]{1,30}$", var.project_name))
+    error_message = "project_name must be lowercase alphanumeric/hyphens, 2-31 chars."
+  }
+}
+
+variable "environment" {
+  type    = string
+  default = "prod"
+
+  validation {
+    condition     = contains(["dev", "staging", "prod"], var.environment)
+    error_message = "environment must be one of: dev, staging, prod."
+  }
 }
